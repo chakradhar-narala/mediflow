@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import API from "../services/api";
+import API, { getUploadsUrl } from "../services/api";
 import Modal from "../components/Modal";
 import { toast } from "react-toastify";
 
@@ -262,7 +262,7 @@ const AdminDashboard = () => {
             {/* Document preview */}
             <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.5rem", backgroundColor: "var(--bg-app)", padding: "1rem", borderRadius: "var(--radius-md)" }}>
               <img
-                src={`http://localhost:5000/uploads/${reviewPresc.image}`}
+                src={getUploadsUrl(reviewPresc.image)}
                 alt="Prescription uploaded by customer"
                 style={{ maxWidth: "100%", maxHeight: "35vh", borderRadius: "var(--radius-sm)", border: "1px solid var(--border-color)" }}
                 onError={(e) => {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import API from "../services/api";
+import API, { getUploadsUrl } from "../services/api";
 import Modal from "../components/Modal";
 import { toast } from "react-toastify";
 
@@ -155,7 +155,7 @@ const PrescriptionUpload = () => {
         {previewImage && (
           <div style={{ display: "flex", justifyContent: "center" }}>
             <img
-              src={`http://localhost:5000/uploads/${previewImage}`}
+              src={getUploadsUrl(previewImage)}
               alt="Prescription document preview"
               style={{ maxWidth: "100%", maxHeight: "50vh", borderRadius: "var(--radius-md)" }}
               onError={(e) => {
